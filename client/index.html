@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/stomp.js"></script>
+    <script src="js/sockjs-0.3.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/client.js"></script>
+  </head>
+  <body onload="disconnect()">
+    <div align="center">
+      <div>
+        <input type="text" id="origin" placeholder="Escolha um apelido" />
+      </div>
+      <br />
+      <div>
+        <button id="connect" onclick="connect();">Conectar</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">Desconectar</button>
+      </div>
+      <br />
+      <div id="divConversa">
+        <input type="text" id="text" placeholder="Escreva uma mensagem..." />
+        <button id="enviarMsg" onclick="enviarMsg();">Enviar</button>
+        <p id="resposta"></p>
+      </div>
+      
+      <script>
+        $("#text").keyup(function(event) {
+          if (event.keyCode === 13) {
+              $("#enviarMsg").click();
+          }
+      });		
+      </script>
+    </div>
+  </body>
+</html>
